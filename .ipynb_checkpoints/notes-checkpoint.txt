@@ -1,0 +1,5 @@
+In order to import the sagemaker module into lambda functions:
+1 - mkdir python
+2 - pip install --target ./python sagemaker
+3 - zip -r sagemaker.zip python/
+4 - aws s3 cp sagemaker.zip s3://20230207-lambda-layer/
