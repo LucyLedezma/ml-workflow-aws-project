@@ -1,10 +1,11 @@
+from ast import literal_eval
 import json
 import sagemaker
 import base64
 from sagemaker.serializers import IdentitySerializer
 
 # Fill this in with the name of your deployed model
-ENDPOINT = "the-end-point-name"## TODO: fill in
+ENDPOINT = 'image-classification-2023-02-07-01-30-41-482'## TODO: fill in
 
 def lambda_handler(event, context):
 
@@ -24,8 +25,8 @@ def lambda_handler(event, context):
     inferences = predictor.predict(image)## TODO: fill in
     
     # We return the data back to the Step Function    
-    event["inferences"] = inferences.decode('utf-8')
+    event["body"]["inferences"] = literal_eval(inferences.decode('utf-8'))
     return {
         'statusCode': 200,
-        'body': json.dumps(event)
+        'body': event["body"]
     }

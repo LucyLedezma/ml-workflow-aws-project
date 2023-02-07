@@ -7,8 +7,7 @@ THRESHOLD = .93
 def lambda_handler(event, context):
     
     # Grab the inferences from the event
-    inferences = event["body"]["event"]["inferences"]## TODO: fill in
-    
+    inferences = event["body"]["inferences"]## TODO: fill in
     # Check if any values in our inferences are above THRESHOLD
     
     meets_threshold = max(inferences) > THRESHOLD ## TODO: fill in
@@ -22,5 +21,5 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': json.dumps(event)
+        'body': event["body"]
     }

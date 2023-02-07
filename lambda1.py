@@ -8,8 +8,8 @@ def lambda_handler(event, context):
     """A function to serialize target data from S3"""
     
     # Get the s3 address from the Step Function event input
-    key = event['key'] #"train/bicycle_s_000038.png" ## TODO: fill in
-    bucket = event['bucket']  #"lucialedezma-workflow-project" ## TODO: fill in
+    key = event['s3_key'] #"train/bicycle_s_000038.png" ## TODO: fill in
+    bucket = event['s3_bucket']  #"lucialedezma-workflow-project" ## TODO: fill in
     
     # Download the data from s3 to /tmp/image.png
     ## TODO: fill in
